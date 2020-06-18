@@ -1,12 +1,27 @@
-body{
+/* body{
     background-image: url(background.jpg);
     background-size: cover;
     height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
     background-position: center;
-}
+} */
 h1 {
     text-align: center;
     font-size: 100px;
+}
+body{
+    background:linear-gradient(
+        rgba(0, 0, 0, 0.15), 
+        rgba(0, 0, 0, 0.85)
+      ), url(background.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-position: center;   
+}
+h5{
+    color: azure;
+    text-align: center;
 }
