@@ -1,7 +1,7 @@
 var settings = {
 	"async": true,
 	"crossDomain": true,
-	"url": "https://realty-mole-property-api.p.rapidapi.com/zipCodes/60060",
+	"url": "https://realty-mole-property-api.p.rapidapi.com/zipCodes/60634",
 	"method": "GET",
 	"headers": {
 		"x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
@@ -27,3 +27,8 @@ var settings = {
 $.ajax(settings).done(function (response) {
 	console.log(response);
 });
+
+$("#searchBtn").on("click",function(){
+	var zip = $("#input").val();
+	console.log(zip)
+})
