@@ -1,8 +1,8 @@
-body{
+body {
     background-image: url(background.jpg);
     background-size: cover;
     height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
     background-position: center;
-}
+};
