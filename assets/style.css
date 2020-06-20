@@ -1,11 +1,4 @@
-/* body{
-    background-image: url(background.jpg);
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    background-repeat: no-repeat;
-    background-position: center;
-} */
+
 h1 {
     text-align: center;
     font-size: 100px;
@@ -24,4 +17,9 @@ body{
 h5{
     color: azure;
     text-align: center;
+}
+
+#img-1 {
+    width:200px;
+    height:200px;
 }
