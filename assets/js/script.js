@@ -59,15 +59,19 @@ function showListing(response) {
 	for (var i = 0; i < response.length; i++) {
 		var rentals = response[i];
 		var card = `<div class="card">
-	  <div class="card-image">
-		<span class="card-title" id="title-1"></span>
-		<img id="img-1" src="#" style="max-height:200px; max-width:200px">
+		<div class="row">
+	  <div class="card-image col s4">
+		<img id="img-1" src="#">
 	  </div>
-	  <div class="card-content" id="content-1">
-		<p>${rentals.formattedAddress}</p>
+	  <div class="card-content col s8" id="content-1" >
+		<p><strong>Address</strong>: ${rentals.formattedAddress}</p>
+		<p><strong>Property Type</strong>: ${rentals.propertyType}</p>
+		<p><strong>No of bedroom</strong>: ${rentals.bedrooms}</p>
+		<p><strong>No of bathroom</strong>: ${rentals.bathrooms}</p>
 	  </div>
 	  <div class="card-action" id="link-1">
 		<a href="#"></a>
+	  </div>
 	  </div>
 	</div>`
 		$("#rental-results").append(card);
@@ -80,17 +84,15 @@ function showEvents(response) {
 	for (var i = 0; i < response.events.length; i++) {
 		var event = response.events[i];
 		var card = `<div class="card">
-	  <div class="card-image">
-		<span class="card-title" id="title-1"></span>
+		<div class="row">
+	  <div class="card-image col s4">
 		<img id="img-1" src="${event.image_url}">
 	  </div>
-	  <div class="card-content" id="content-1">
-		<h6>${event.name}</h6>
-		<p>${event.description}</p>
-		<p>${event.location}</p>
-	  </div>
-	  <div class="card-action" id="link-1">
+	  <div class="card-content col s8" id="content-1">
+		<h6><strong> Title: ${event.name}</strong></h6>
+		<p><strong>Description</strong>: ${event.description}</p>
 		<a href="${event.event_site_url}" target ="_blank">Read More</a>
+		<p><strong>Venue</strong>: ${event.location.display_address[0]+', '+event.location.display_address[1]}</p>
 	  </div>
 	</div>`
 		$("#event-results").append(card);
