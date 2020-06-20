@@ -30,16 +30,13 @@ $("#searchBtn").on("click",function(){
 	
 		$.ajax(settings).done(function (response) {
 			console.log(response);
-			$(".card-title").text(response.formattedAddress);
+			showListing(response);
 			
 		});
-
-});
-	
-//Ajax call for events
+		//Ajax call for events
 	var settings = {
 
-		"url": "http://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=25&location=60060",
+		"url": "http://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + city + "," + selectedState,
 		"method": "GET",
 		"timeout": 0,
 		// dataType: "jsonp",
@@ -49,10 +46,54 @@ $("#searchBtn").on("click",function(){
 		},
 	  };
 	  $.ajax(settings).done(function (response) {
+		  showEvents(response);
 		console.log(response);
-	  }).catch(function(error){
-		  console.log(error.responseText)
-	  });
+	  })
+
+
+});
+	
 
 
  
+function showListing(response) {
+	var column = `<div class="col s6">
+	<div class="card">
+	  <div class="card-image">
+		<span class="card-title" id="title-1"></span>
+		<img id="img-1" src="#">
+	  </div>
+	  <div class="card-content" id="content-1">
+		<p></p>
+	  </div>
+	  <div class="card-action" id="link-1">
+		<a href="#"></a>
+	  </div>
+	</div>
+  </div>`
+ for(var i = 0; i < response.length; i++){};
+}
+
+function showEvents(response){
+	
+ for(var i = 0; i < response.events.length; i++){
+	var event = response.events[i];
+	var column = `<div class="col s6">
+	<div class="card">
+	  <div class="card-image">
+		<span class="card-title" id="title-1">${event.name}</span>
+		<img id="img-1" src="${event.image_url}">
+	  </div>
+	  <div class="card-content" id="content-1">
+		<p></p>
+	  </div>
+	  <div class="card-action" id="link-1">
+		<a href="#"></a>
+	  </div>
+	</div>
+  </div>`
+    $("#results").append(column);
+
+ };
+
+};
