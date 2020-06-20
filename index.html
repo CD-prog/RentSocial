@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RentSafe</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
   <link href="assets/style.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 </head>
-
 <body>
   <div class="background"></div>
   <nav>
@@ -21,17 +22,17 @@
       </ul>
     </div>
   </nav>
-  <h5>Search for your next abode which you can call safe haven!</h5>
+  <h5>Search for your local events and rental listings</h5>
   <div class="container">
     <div class="row">
       <div class="input-field col s4">
-        <input id="input" class="card-panel white lighten-6" placeholder="enter city">
+        <input id="input" class="card-panel white lighten-6" placeholder=" Enter City Name">
       </div>
       <div class="col s4">
         <fieldset>
-          <label for="state">State</label>
+        <!--<label for="state">State</label>-->
           <select id="state" name="state">
-            <option value="---">---</option>
+            <option value="---">Select State</option>
             <option value="AL">Alabama</option>
             <option value="AK">Alaska</option>
             <option value="AZ">Arizona</option>
@@ -96,43 +97,13 @@
     </div>
   </div>
   <br>
-  <div class="row" id="results">
-    <!--<div class="col s6">
-      <div class="card">
-        <div class="card-image">
-          <span class="card-title" id="title-1"></span>
-          <img id="img-1" src="#">
-        </div>
-        <div class="card-content" id="content-1">
-          <p></p>
-        </div>
-        <div class="card-action" id="link-1">
-          <a href="#"></a>
-        </div>
-      </div>
-    </div> -->
-    <!-- Card 2
-    <div class="col s6 ">
-      <div class="card">
-        <div class="card-image">
-          <img src=>
-          <span class="card-title"></span>
-        </div>
-        <div class="card-content">
-          <p></p>
-        </div>
-        <div class="card-action">
-          <a href="#"></a>
-        </div>
-      </div>
-    </div> -->
+  <div class="row">
+    <div class="col s6" id="rental-results"></div>
+    <div class="col s6" id="event-results"></div>
   </div>
-
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <!-- Compiled and minified JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
   <script src="assets/js/script.js"></script>
-
   <body>
-
 </html>
