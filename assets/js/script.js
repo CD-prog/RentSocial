@@ -5,12 +5,13 @@
  * Step 4: On click "Show Property Details" call https://realty-mole-property-api.p.rapidapi.com/properties?address= with the property address from the display.
  * Step 5: On click "Local Events", call yelp api to get events using the city from the formatted address.
  */
- $(document).ready(function(){
+$(document).ready(function () {
 	$('select').formSelect();
- });
- 
-	
-$("#searchBtn").on("click",function(){
+});
+
+
+$("#searchBtn").on("click", function () {
+	$("#results").empty();
 	var city = $("#input").val();
 	console.log(city);
 	var selectedState = $('#state :selected').val();
@@ -18,22 +19,22 @@ $("#searchBtn").on("click",function(){
 
 	//Ajax call to get rental listing
 	var settings = {
-			"async": true,
-			"crossDomain": true,
-			"url": "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=" + city + "&state="+ selectedState +"&limit=10",
-			"method": "GET",
-			"headers": {
-				"x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
-				"x-rapidapi-key": "5b3ff73122msh6af3ba0447690c7p1e5784jsn2bc639bd251a"
-			}
-		};
-	
-		$.ajax(settings).done(function (response) {
-			console.log(response);
-			showListing(response);
-			
-		});
-		//Ajax call for events
+		"async": true,
+		"crossDomain": true,
+		"url": "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=" + city + "&state=" + selectedState + "&limit=10",
+		"method": "GET",
+		"headers": {
+			"x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
+			"x-rapidapi-key": "5b3ff73122msh6af3ba0447690c7p1e5784jsn2bc639bd251a"
+		}
+	};
+
+	$.ajax(settings).done(function (response) {
+		console.log(response);
+		showListing(response);
+
+	});
+	//Ajax call for events
 	var settings = {
 
 		"url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + city + "," + selectedState,
@@ -41,24 +42,23 @@ $("#searchBtn").on("click",function(){
 		"timeout": 0,
 		// dataType: "jsonp",
 		"headers": {
-		  "Authorization": "Bearer ziQsHIfnSa_NACbvMbDhqwbokq9PHvJ8vhH3TqgnSKqriuR-X8NwwjZ2zcdke6bCgJ-wW4NtRRKuAk0IdZzWg71fPHApVP841FW-X3sLYft0wMD9AK9ioGrJQRnsXnYx"
-		  
+			"Authorization": "Bearer ziQsHIfnSa_NACbvMbDhqwbokq9PHvJ8vhH3TqgnSKqriuR-X8NwwjZ2zcdke6bCgJ-wW4NtRRKuAk0IdZzWg71fPHApVP841FW-X3sLYft0wMD9AK9ioGrJQRnsXnYx"
+
 		},
-	  };
-	  $.ajax(settings).done(function (response) {
-		  showEvents(response);
+	};
+	$.ajax(settings).done(function (response) {
+		showEvents(response);
 		console.log(response);
-	  })
+	})
 
 
 });
-	
- 
+
+
 function showListing(response) {
-	for(var i = 0; i < response.length; i++){
-	var rentals = response[i];
-	var column = `<div class="col s6">
-	<div class="card">
+	for (var i = 0; i < response.length; i++) {
+		var rentals = response[i];
+		var card = `<div class="card">
 	  <div class="card-image">
 		<span class="card-title" id="title-1"></span>
 		<img id="img-1" src="#" style="max-height:200px; max-width:200px">
@@ -69,33 +69,32 @@ function showListing(response) {
 	  <div class="card-action" id="link-1">
 		<a href="#"></a>
 	  </div>
-	</div>
-  </div>`
-  $("#results").append(column);
- 
-};
+	</div>`
+		$("#rental-results").append(card);
+
+	};
 };
 
-function showEvents(response){
-	
- for(var i = 0; i < response.events.length; i++){
-	var event = response.events[i];
-	var column = `<div class="col s6">
-	<div class="card">
+function showEvents(response) {
+
+	for (var i = 0; i < response.events.length; i++) {
+		var event = response.events[i];
+		var card = `<div class="card">
 	  <div class="card-image">
-		<span class="card-title" id="title-1">${event.name}</span>
+		<span class="card-title" id="title-1"></span>
 		<img id="img-1" src="${event.image_url}">
 	  </div>
 	  <div class="card-content" id="content-1">
-		<p></p>
+		<h6>${event.name}</h6>
+		<p>${event.description}</p>
+		<p>${event.location}</p>
 	  </div>
 	  <div class="card-action" id="link-1">
-		<a href="#"></a>
+		<a href="${event.event_site_url}" target ="_blank">Read More</a>
 	  </div>
-	</div>
-  </div>`
-    $("#results").append(column);
+	</div>`
+		$("#event-results").append(card);
 
- };
+	};
 
 };
