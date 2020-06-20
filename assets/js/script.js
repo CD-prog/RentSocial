@@ -36,7 +36,7 @@ $("#searchBtn").on("click",function(){
 		//Ajax call for events
 	var settings = {
 
-		"url": "http://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + city + "," + selectedState,
+		"url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + city + "," + selectedState,
 		"method": "GET",
 		"timeout": 0,
 		// dataType: "jsonp",
