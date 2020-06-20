@@ -53,26 +53,28 @@ $("#searchBtn").on("click",function(){
 
 });
 	
-
-
  
 function showListing(response) {
+	for(var i = 0; i < response.length; i++){
+	var rentals = response[i];
 	var column = `<div class="col s6">
 	<div class="card">
 	  <div class="card-image">
 		<span class="card-title" id="title-1"></span>
-		<img id="img-1" src="#">
+		<img id="img-1" src="#" style="max-height:200px; max-width:200px">
 	  </div>
 	  <div class="card-content" id="content-1">
-		<p></p>
+		<p>${rentals.formattedAddress}</p>
 	  </div>
 	  <div class="card-action" id="link-1">
 		<a href="#"></a>
 	  </div>
 	</div>
   </div>`
- for(var i = 0; i < response.length; i++){};
-}
+  $("#results").append(column);
+ 
+};
+};
 
 function showEvents(response){
 	
