@@ -1,0 +1,101 @@
+
+h1 {
+    text-align: center;
+    font-size: 100px;
+}
+body {
+    background:linear-gradient(
+        rgba(0, 0, 0, 0.15), 
+        rgba(0, 0, 0, 0.85)
+      ), url(background.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+h5 {
+    color: white !important;
+    text-align: center;
+    font-size: 48px;
+    font-family: 'Italianno', cursive;
+    
+}
+
+#img-1 {
+    width:200px;
+    height:200px;
+}
+
+nav .brand-logo {
+    position: absolute;
+    position: center;
+    color: #fff;
+    display: inline-block;
+    font-size: 2.1rem;
+    padding: 0;
+    font-family: 'Pacifico', cursive;
+
+}
+
+.card-panel {
+    border-bottom: 1px solid #ee6e73;;
+    border-radius: 0;
+    outline: none;
+    height: 3rem;
+    width: 100%;
+    font-size: 16px;
+    margin: 0 0 8px 0;
+    padding: 0;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    transition: box-shadow .3s, border .3s, -webkit-box-shadow .3s;
+}
+
+fieldset {
+    display: block;
+    height: 3rem;
+    background-color: white;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+
+.dropdown-content li>a , .dropdown-content li>span {
+    color: black;
+}
+
+.input-field {
+    margin-top:0;
+}
+
+.select-wrapper input.select-dropdown {
+    border-bottom: none;
+}
+
+/*fieldset {
+    display: block;
+    margin-inline-start: 2px;
+    margin-inline-end: 2px;
+    padding-block-start: 0.35em;
+    padding-inline-start: 0.75em;
+    padding-inline-end: 0.75em;
+    padding-block-end: 0.625em;
+    min-inline-size: min-content;
+    border-width: 2px;
+    border-style: groove;
+    border-color: threedface;
+    border-image: initial;
+}
+
