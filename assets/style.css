@@ -140,3 +140,13 @@ a {
     margin-right: 20px;
     font-size: x-large;
 }
+.sidenav {
+    background-color:  #ee6e73;
+}
+
+@media (max-width:640px){
+    #contact-form {
+    margin:0px;
+    padding:0px;
+    }
+  }

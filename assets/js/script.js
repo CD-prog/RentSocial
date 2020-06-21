@@ -6,6 +6,12 @@
  * Step 5: On click "Local Events", call yelp api to get events using the city from the formatted address.
  */
 
+
+// Hamburger view
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        
 //Initiating drop down
 $(document).ready(function () {
 	$('select').formSelect();
