@@ -6,7 +6,7 @@
  * Step 5: On click "Local Events", call yelp api to get events using the city from the formatted address.
  */
 
- //Initiating drop down
+//Initiating drop down
 $(document).ready(function () {
 	$('select').formSelect();
 });
@@ -73,7 +73,7 @@ function showListing(response) {
 				<img id="img-1" src="#">
 			</div>
 			<div class="card-content col s8" id="content-1" >
-				<p><strong>Address</strong>: ${rentals.formattedAddress}</p>
+				<h6><strong>Address: ${rentals.formattedAddress}</strong></h6>
 				<p><strong>Rent</strong>: $ ${rentals.price}</p>
 				<p><strong>Property Type</strong>: ${rentals.propertyType}</p>
 				<p><strong>No of bedroom</strong>: ${rentals.bedrooms}</p>
@@ -82,10 +82,10 @@ function showListing(response) {
 			</div>
 	  	</div>
 	</div>`
-	
-	$("#rental-results").append(card);
-	//$("#rental-results").append(button);
-	
+
+		$("#rental-results").append(card);
+		//$("#rental-results").append(button);
+
 	};
 };
 
@@ -104,7 +104,7 @@ function showListing(response) {
 // 			"x-rapidapi-key": "5b3ff73122msh6af3ba0447690c7p1e5784jsn2bc639bd251a"
 // 		}
 // 	}
-	
+
 // 	$.ajax(settings).done(function (response) {
 // 		console.log(response);
 // 	});
@@ -121,13 +121,13 @@ function showListing(response) {
 // 			"x-rapidapi-key": "5b3ff73122msh6af3ba0447690c7p1e5784jsn2bc639bd251a"
 // 		}
 // 	}
-	
+
 // 	$.ajax(settings).done(function (response) {
 // 		console.log(response);
 // 	});	  
 //   }
 
-// this funtion is for displaying local events
+// this function is for displaying local events
 function showEvents(response) {
 
 	for (var i = 0; i < response.events.length; i++) {
@@ -141,7 +141,7 @@ function showEvents(response) {
 		<h6><strong> Title: ${event.name}</strong></h6>
 		<p><strong>Description</strong>: ${event.description}</p>
 		<p><strong>Venue</strong>: ${event.location.display_address[0]}</p>
-		<button><a href="${event.event_site_url}" target ="_blank">Read More</a></button>
+		<button class="buttonReadMore"><a href="${event.event_site_url}" target ="_blank">Read More</a></button>
 	  </div>
 	</div>`
 		$("#event-results").append(card);
