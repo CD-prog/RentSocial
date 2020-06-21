@@ -59,18 +59,14 @@ fieldset {
     display: block;
     height: 3rem;
     background-color: white;
-    margin-inline-start: 2px;
-    margin-inline-end: 2px;
-    padding-block-start: 0.35em;
-    padding-inline-start: 0.75em;
-    padding-inline-end: 0.75em;
-    padding-block-end: 0.625em;
     min-inline-size: min-content;
-    border-width: 2px;
     border-style: groove;
-    border-color: threedface;
     border-image: initial;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    border-width: 0px;
 }
+
 
 .dropdown-content li>a , .dropdown-content li>span {
     color: black;
@@ -83,6 +79,64 @@ fieldset {
 .select-wrapper input.select-dropdown {
     border-bottom: none;
 }
+
 #searchBtn {
     background-color: #ee6e73 !important;
+}
+
+#contact-form {
+    margin-left:115px;
+    margin-top: 20px;
+    opacity:0.8;
+    color: red;
+}
+
+#send-button {
+    width:100px;
+    margin-left:20px;
+}
+
+#message {
+    padding-top:70px;
+}
+
+.brand-logo {
+    margin-left: 20px;
+}
+
+.select-wrapper input.select-dropdown:focus {
+    border-bottom: 0px;
+}
+
+#searchBtn {
+    width: 120px;
+    height: 45px;
+}
+
+#input {
+    height:3rem;
+    border-width: 0px;
+}
+
+.card {
+    opacity:0.8;
+    background-color:rgb(243, 241, 241);
+}
+
+.buttonReadMore{
+    background-color: rgb(19, 101, 232);
+    color:white;
+    float: right;
+}
+.buttonSeeMore{
+    background-color: rgb(19, 101, 232);
+    color:white;
+    float: right;
+}
+a {
+    color:white;  
+}
+#nav-mobile {
+    margin-right: 20px;
+    font-size: x-large;
 }
