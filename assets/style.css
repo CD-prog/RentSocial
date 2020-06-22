@@ -120,18 +120,19 @@ fieldset {
 
 .card {
     opacity:0.8;
-    background-color:rgb(243, 241, 241);
+    background-color:#f6e8e8;
 }
 
 .buttonReadMore{
     background-color: rgb(19, 101, 232);
     color:white;
-    float: right;
 }
-.buttonSeeMore{
+.buttonViewMap{
     background-color: rgb(19, 101, 232);
     color:white;
-    float: right;
+    height:23px;
+    width:89.81px;
+   
 }
 a {
     color:white;  
@@ -150,3 +151,17 @@ a {
     padding:0px;
     }
   }
+
+  .card .card-content {
+    padding-top:0px;
+    padding-right: 10px;}
+
+    #loadingDiv {
+        font-style: italic;
+        text-align: center;
+        font-size: 35px;
+        font-weight: bold;
+        color:rgb(255, 255, 255);
+
+        
+    }
