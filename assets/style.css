@@ -7,7 +7,7 @@ body {
     background:linear-gradient(
         rgba(0, 0, 0, 0.15), 
         rgba(0, 0, 0, 0.85)
-      ), url(background.jpg);
+      ), url(images/background.jpg);
     background-size: cover;
     height: 100vh;
     width: 100vw;
