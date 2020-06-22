@@ -117,7 +117,7 @@ $(document).ready(function () {
 		var settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "http://www.mapquestapi.com/geocoding/v1/address?key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p&location=" + buttonIndex + "&zoom=10&type=hyb&size=600,400@2x",
+			"url": "https://www.mapquestapi.com/geocoding/v1/address?key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p&location=" + buttonIndex + "&zoom=10&type=hyb&size=600,400@2x",
 			"method": "GET",
 		}
 
