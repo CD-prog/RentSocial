@@ -9,7 +9,15 @@
  * 8. nav bar toggle in small screen
  */
 
-
+// Loading message displayed until getting response 
+var $loading = $('#loadingDiv').hide();
+$(document)
+	.ajaxStart(function () {
+		$loading.show();
+	})
+	.ajaxStop(function () {
+		$loading.hide();
+	});
 // Hamburger view
 $(document).ready(function(){
     $('.sidenav').sidenav();
@@ -19,7 +27,7 @@ $(document).ready(function(){
 $(document).ready(function () {
 	var imageArray = ["assets/images/img-1.jpg", "assets/images/img-2.jpg", "assets/images/img-3.jpg", "assets/images/img-4.jpg", "assets/images/img-5.jpg", "assets/images/img-6.jpg", "assets/images/img-7.jpg", "assets/images/img-8.jpg", "assets/images/img-9.jpg", "assets/images/img-10.jpg"];
 
-	var $loading = $('#loading');
+
 
 	//Initiating drop down
 	$('select').formSelect();
@@ -51,8 +59,7 @@ $(document).ready(function () {
 			$loading.hide();
 			showListing(response);
 		});
-
-
+	
 		//Ajax call to get local events
 		var settings = {
 			"url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + formattedCity + "," + selectedState + "&start_date=" + eventStartDate + "&end_date=" + eventEndDate + "&sort_on=time_start",
@@ -73,7 +80,7 @@ $(document).ready(function () {
 	function showListing(response) {
 		for (var i = 0; i < response.length; i++) {
 			var rentals = response[i];
-			var button = $("<button>");
+			var button = $("<button>View Map</button>");
 			button.attr("type", "button");
 			button.attr("data-index", escape(rentals.formattedAddress));
 			button.attr("class", "buttonViewMap");
@@ -90,7 +97,7 @@ $(document).ready(function () {
 				<p><strong>Property Type</strong>: ${rentals.propertyType}</p>
 				<p><strong>No of bedroom</strong>: ${rentals.bedrooms}</p>
 				<p><strong>No of bathroom</strong>: ${rentals.bathrooms}</p>
-				<button class="buttonViewMap>View Map</button>
+			
 			</div>
 	  	</div>
 	</div>`
@@ -141,7 +148,7 @@ $(document).ready(function () {
 				<h6><strong> Title: ${event.name}</strong></h6>
 				<p><strong>Description</strong>: ${event.description}</p>
 				<p><strong>Venue</strong>: ${event.location.display_address[0]}</p>
-				<button><a href="${event.event_site_url}" target ="_blank">Read More</a></button>
+				<button class="buttonReadMore"><a href="${event.event_site_url}" target ="_blank">Read More</a></button>
 			</div>
 		<div>	
 	</div>`
