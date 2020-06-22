@@ -8,6 +8,14 @@
  * 7. place the view map button inside the card
  * 8. nav bar toggle in small screen
  */
+
+
+// Hamburger view
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+  });
+        
+//Initiating drop down
 $(document).ready(function () {
 	var imageArray = ["assets/images/img-1.jpg", "assets/images/img-2.jpg", "assets/images/img-3.jpg", "assets/images/img-4.jpg", "assets/images/img-5.jpg", "assets/images/img-6.jpg", "assets/images/img-7.jpg", "assets/images/img-8.jpg", "assets/images/img-9.jpg", "assets/images/img-10.jpg"];
 
@@ -77,7 +85,7 @@ $(document).ready(function () {
 				<img id="img-1" class="responsive-img" src="${imageArray[i]}">
 			</div>
 			<div class="card-content col s8" id="content-1" >
-				<p><strong>Address</strong>: ${rentals.formattedAddress}</p>
+				<h6><strong>Address: ${rentals.formattedAddress}</strong></h6>
 				<p><strong>Rent</strong>: $ ${rentals.price}</p>
 				<p><strong>Property Type</strong>: ${rentals.propertyType}</p>
 				<p><strong>No of bedroom</strong>: ${rentals.bedrooms}</p>
