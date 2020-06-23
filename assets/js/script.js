@@ -4,8 +4,6 @@
  * 3. If service not available display proper message
  * 4. if any value is not present/ undefined, how to handle it?
  * 5. if no events available, what message should be displayed?
-
-
  */
 
 // Loading message displayed until getting response 
@@ -39,13 +37,23 @@ $(document).ready(function () {
 
 	// Splitting words, replacing first letter of each word with capital letter and joining them so they can be added to url		
 
+		// var word1 = city[0].charAt(0).toUpperCase()+city[0].slice(1);
+		// if (city[1]==null){
+		// 	city=word1;
+		// }else if (city[1]){
+		// var word2 = city[1].charAt(0).toUpperCase()+city[1].slice(1);
+		// 	city = word1 + "%20" + word2
+		// }
+
 		var city = $("#input").val().split(" ");
-		var word1 = city[0].charAt(0).toUpperCase()+city[0].slice(1);
-		if (city[1]==null){
-			city=word1;
-		}else if (city[1]){
-		var word2 = city[1].charAt(0).toUpperCase()+city[1].slice(1);
-			city = word1 + "%20" + word2
+		var concatCity =" ";
+		if (city.length > 1) {
+			city.forEach(element => {
+				concatCity = concatCity + element.charAt(0).toUpperCase() + element.slice(1) + " ";
+			});
+			city = escape(concatCity.trim());
+		} else {
+			city = city[0].charAt(0).toUpperCase() + city[0].slice(1);
 		}
 
 		var selectedState = $("#state :selected").val();
@@ -89,23 +97,23 @@ $(document).ready(function () {
 		for (var i = 0; i < response.length; i++) {
 			var rentals = response[i];
 			var card = `<div class="card">
-		<div class="row">
-			<div class="card-image col s4">
-				<img id="img-1" class="responsive-img" src="${imageArray[i]}">
-			</div>
-			<div class="card-content col s8" id="content-1" >
-				<h6><strong>Address: ${rentals.formattedAddress}</strong></h6>
-				<p><strong>Rent</strong>: $ ${rentals.price}</p>
-				<p><strong>Property Type</strong>: ${rentals.propertyType}</p>
-				<p><strong>No of bedroom</strong>: ${rentals.bedrooms}</p>
-				<p><strong>No of bathroom</strong>: ${rentals.bathrooms}</p><br>
-				<button class="buttonViewMap" data-index="${rentals.formattedAddress}" alt="See More">View Map</button>
-				</div>
-				</div>
-				</div>`
-				$("#rental-results").append(card);
-			};
+					<div class="row">
+						<div class="card-image col s4">
+							<img id="img-1" class="responsive-img" src="${imageArray[i]}">
+						</div>
+						<div class="card-content col s8" id="content-1" >
+							<h6><strong>Address: ${rentals.formattedAddress == null ? " " : rentals.formattedAddress}</strong></h6>
+							<p><strong>Rent</strong>: $ ${rentals.price == null ? " " : rentals.price}</p>
+							<p><strong>Property Type</strong>: ${rentals.propertyType == null ? " " : rentals.propertyType}</p>
+							<p><strong>No of bedroom</strong>: ${rentals.bedrooms == null ? " " : rentals.bedrooms}</p>
+							<p><strong>No of bathroom</strong>: ${rentals.bathrooms == null ? " " : rentals.bathrooms}</p><br>
+							<button class="buttonViewMap" data-index="${escape(rentals.formattedAddress == null ? " " : rentals.formattedAddress)}">View Map</button>
+						</div>
+					</div>
+			</div>`
+			$("#rental-results").append(card);
 		};
+	};
 
 	//add event listener to View Map button
 	$('body').on("click", '.buttonViewMap', function () {
@@ -137,18 +145,18 @@ $(document).ready(function () {
 		for (var i = 0; i < response.events.length; i++) {
 			var event = response.events[i];
 			var card = `<div class="card">
-		<div class="row">
-			<div class="card-image col s4">
-				<img id="img-1" class="responsive-img" src="${event.image_url}">
-			</div>
-			<div class="card-content col s8" id="content-1">
-				<h6><strong> Title: ${event.name}</strong></h6>
-				<p><strong>Description</strong>: ${event.description}</p>
-				<p><strong>Venue</strong>: ${event.location.display_address[0]}</p>
-				<button class="buttonReadMore"><a href="${event.event_site_url}" target ="_blank">Read More</a></button>
-			</div>
-		<div>	
-	</div>`
+				<div class="row">
+					<div class="card-image col s4">
+						<img id="img-1" class="responsive-img" src="${event.image_url}">
+					</div>
+					<div class="card-content col s8" id="content-1">
+						<h6><strong> Title: ${event.name}</strong></h6>
+						<p><strong>Description</strong>: ${event.description}</p>
+						<p><strong>Venue</strong>: ${event.location.display_address[0]}</p>
+						<button class="buttonReadMore"><a href="${event.event_site_url}" target ="_blank">Read More</a></button>
+					</div>
+				<div>	
+			</div>`
 			$("#event-results").append(card);
 
 		};
