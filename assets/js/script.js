@@ -114,7 +114,7 @@ $(document).ready(function () {
 		lat = response.results[0].locations[0].latLng.lat
 		lng = response.results[0].locations[0].latLng.lng
 
-		url= "https://www.mapquestapi.com/staticmap/v5/map?locations="+lat+ "," +lng+"&size=800,800@2x&key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p"
+		url= "https://www.mapquestapi.com/staticmap/v5/map?locations="+lat+ "," +lng+"&size=1280,800@2x&key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p"
 		console.log(url)	
 		});		
 	});
