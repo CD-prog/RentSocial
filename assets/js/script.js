@@ -80,12 +80,6 @@ $(document).ready(function () {
 	function showListing(response) {
 		for (var i = 0; i < response.length; i++) {
 			var rentals = response[i];
-			var button = $("<button>View Map</button>");
-			button.attr("type", "button");
-			button.attr("data-index", escape(rentals.formattedAddress));
-			button.attr("class", "buttonViewMap");
-			button.attr("alt", "See More");
-
 			var card = `<div class="card">
 		<div class="row">
 			<div class="card-image col s4">
@@ -96,16 +90,14 @@ $(document).ready(function () {
 				<p><strong>Rent</strong>: $ ${rentals.price}</p>
 				<p><strong>Property Type</strong>: ${rentals.propertyType}</p>
 				<p><strong>No of bedroom</strong>: ${rentals.bedrooms}</p>
-				<p><strong>No of bathroom</strong>: ${rentals.bathrooms}</p>
-			
-			</div>
-	  	</div>
-	</div>`
-			$("#rental-results").append(card);
-			$("#rental-results").append(button);
-
+				<p><strong>No of bathroom</strong>: ${rentals.bathrooms}</p><br>
+				<button class="buttonViewMap" data-index="${rentals.formattedAddress}" alt="See More">View Map</button>
+				</div>
+				</div>
+				</div>`
+				$("#rental-results").append(card);
+			};
 		};
-	};
 
 	//add event listener to View Map button
 	$('body').on("click", '.buttonViewMap', function () {
