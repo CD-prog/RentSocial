@@ -4,9 +4,8 @@
  * 3. If service not available display proper message
  * 4. if any value is not present/ undefined, how to handle it?
  * 5. if no events available, what message should be displayed?
- * 6. spinner
- * 7. place the view map button inside the card
- * 8. nav bar toggle in small screen
+
+
  */
 
 // Loading message displayed until getting response 
@@ -37,8 +36,18 @@ $(document).ready(function () {
 	$("#searchBtn").on("click", function () {
 		$("#rental-results").empty();
 		$("#event-results").empty();
-		var city = $("#input").val();
-		var formattedCity = city.charAt(0).toUpperCase() + city.slice(1);
+
+	// Splitting words, replacing first letter of each word with capital letter and joining them so they can be added to url		
+
+		var city = $("#input").val().split(" ");
+		var word1 = city[0].charAt(0).toUpperCase()+city[0].slice(1);
+		if (city[1]==null){
+			city=word1;
+		}else if (city[1]){
+		var word2 = city[1].charAt(0).toUpperCase()+city[1].slice(1);
+			city = word1 + "%20" + word2
+		}
+
 		var selectedState = $("#state :selected").val();
 		var eventStartDate = moment().unix();
 		var eventEndDate = moment().add(moment.duration(6, "months")).unix();
@@ -47,7 +56,7 @@ $(document).ready(function () {
 		var settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=" + formattedCity + "&state=" + selectedState + "&limit=10",
+			"url": "https://realty-mole-property-api.p.rapidapi.com/rentalListings?city=" + city + "&state=" + selectedState + "&limit=10",
 			"method": "GET",
 			"headers": {
 				"x-rapidapi-host": "realty-mole-property-api.p.rapidapi.com",
@@ -55,13 +64,13 @@ $(document).ready(function () {
 			}
 		};
 		$.ajax(settings).done(function (response) {
-			// console.log(response);
+			console.log(response);
 			showListing(response);
 		});
 	
 		//Ajax call to get local events
 		var settings = {
-			"url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + formattedCity + "," + selectedState + "&start_date=" + eventStartDate + "&end_date=" + eventEndDate + "&sort_on=time_start",
+			"url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + city + "," + selectedState + "&start_date=" + eventStartDate + "&end_date=" + eventEndDate + "&sort_on=time_start",
 			"method": "GET",
 			"timeout": 0,
 			// dataType: "jsonp",
@@ -101,7 +110,7 @@ $(document).ready(function () {
 	//add event listener to View Map button
 	$('body').on("click", '.buttonViewMap', function () {
 		var buttonIndex = $(this).data('index');
-		// console.log(buttonIndex)
+		console.log(buttonIndex)
 	
 
 	//GeoCode Address
