@@ -101,7 +101,8 @@ $(document).ready(function () {
 	//add event listener to View Map button
 	$('body').on("click", '.buttonViewMap', function () {
 		var buttonIndex = $(this).data('index');
-		console.log(buttonIndex)
+		// console.log(buttonIndex)
+	
 
 	//GeoCode Address
 		var settings = {
@@ -115,7 +116,8 @@ $(document).ready(function () {
 		lng = response.results[0].locations[0].latLng.lng
 
 		url= "https://www.mapquestapi.com/staticmap/v5/map?locations="+lat+ "," +lng+"&size=1280,800@2x&key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p"
-		console.log(url)	
+		// console.log(url)	
+		window.open(url);
 		});		
 	});
 
