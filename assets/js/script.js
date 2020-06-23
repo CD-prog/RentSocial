@@ -55,8 +55,7 @@ $(document).ready(function () {
 			}
 		};
 		$.ajax(settings).done(function (response) {
-			console.log(response);
-			$loading.hide();
+			// console.log(response);
 			showListing(response);
 		});
 	
@@ -102,31 +101,26 @@ $(document).ready(function () {
 	//add event listener to View Map button
 	$('body').on("click", '.buttonViewMap', function () {
 		var buttonIndex = $(this).data('index');
-		console.log(buttonIndex);
+		console.log(buttonIndex)
 
-		//Static Map
-		// var settings = {
-		// 	"async": true,
-		// 	"crossDomain": true,
-		// 	"url": "https://www.mapquestapi.com/staticmap/v5/map?key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p&center=" + buttonIndex + "&zoom=10&type=hyb&size=600,400@2x",
-		// 	"method": "GET",
-		// }
-
-		//GeoCode Address
+	//GeoCode Address
 		var settings = {
 			"async": true,
 			"crossDomain": true,
-			"url": "https://www.mapquestapi.com/geocoding/v1/address?key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p&location=" + buttonIndex + "&zoom=10&type=hyb&size=600,400@2x",
+			"url": "https://www.mapquestapi.com/geocoding/v1/address?key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p&location=" + buttonIndex ,
 			"method": "GET",
 		}
-
 		$.ajax(settings).done(function (response) {
-			console.log(response.results[0].locations[0].mapUrl);
-		});
+		lat = response.results[0].locations[0].latLng.lat
+		lng = response.results[0].locations[0].latLng.lng
+
+		url= "https://www.mapquestapi.com/staticmap/v5/map?locations="+lat+ "," +lng+"&size=800,800@2x&key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p"
+		console.log(url)	
+		});		
 	});
 
 
-	// this funtion is for displaying local events
+	// this function is for displaying local events
 	function showEvents(response) {
 
 		for (var i = 0; i < response.events.length; i++) {
