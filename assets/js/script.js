@@ -1,10 +1,3 @@
-/** to do:
- * 1. user should enter a valid city or error message should be displayed
- * 2. user has to select a state or error message should be displayed
- * 3. If service not available display proper message
- * 5. if no events available, what message should be displayed?
- */
-
 // Loading message displayed until getting response 
 var $loading = $('#loadingDiv').hide();
 $(document)
@@ -14,12 +7,11 @@ $(document)
 	.ajaxStop(function () {
 		$loading.hide();
 	});
-// Hamburger view
+// Hamburger menu view
 $(document).ready(function () {
 	$('.sidenav').sidenav();
 });
 
-//Initiating drop down
 $(document).ready(function () {
 	var imageArray = ["assets/images/img-1.jpg", "assets/images/img-2.jpg", "assets/images/img-3.jpg", "assets/images/img-4.jpg", "assets/images/img-5.jpg", "assets/images/img-6.jpg", "assets/images/img-7.jpg", "assets/images/img-8.jpg", "assets/images/img-9.jpg", "assets/images/img-10.jpg"];
 
@@ -34,7 +26,9 @@ $(document).ready(function () {
 		$("#rental-results").empty();
 		$("#event-results").empty();
 
-
+		if (($("#input").val()) == []) {
+			$("#input").attr("placeholder", "                      PLEASE ENTER A VALID CITY NAME !");
+		}
 		// Splitting words, replacing first letter of each word with capital letter and joining them so they can be added to url		
 		var city = $("#input").val().split(" ");
 		var concatCity = " ";
@@ -82,7 +76,6 @@ $(document).ready(function () {
 			console.log(response);
 		})
 	});
-
 	//This function is for displaying the rental listing
 	function showListing(response) {
 		for (var i = 0; i < response.length; i++) {
@@ -109,10 +102,7 @@ $(document).ready(function () {
 	//add event listener to View Map button
 	$('body').on("click", '.buttonViewMap', function () {
 		var buttonIndex = $(this).data('index');
-		console.log(buttonIndex)
-
-
-		//GeoCode Address
+		//Getting latitude and longitude
 		var settings = {
 			"async": true,
 			"crossDomain": true,
@@ -124,13 +114,12 @@ $(document).ready(function () {
 			lng = response.results[0].locations[0].latLng.lng
 
 			url = "https://www.mapquestapi.com/staticmap/v5/map?locations=" + lat + "," + lng + "&size=1280,800@2x&key=rS5lDoNcX2uDA4T332RbG7npjFiUZ84p"
-			// console.log(url)	
 			window.open(url);
 		});
 	});
 
 
-	// this function is for displaying local events
+	// This function is for displaying local events
 	function showEvents(response) {
 
 		for (var i = 0; i < response.events.length; i++) {
