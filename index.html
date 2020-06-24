@@ -5,16 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>RentSocial</title>
+  <!--linking stylesheets-->
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
   <link href="assets/style.css" rel="stylesheet">
 </head>
 
 <body>
+  <!--This section is for nav bar-->
   <nav>
     <div class="nav-wrapper">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -34,9 +35,7 @@
   <br>
   <h5 class="animate__animated animate__fadeInLeft"> Search for rental listings and nearby events</h5>
   <br>
-
-
-
+<!--This section contains input, select dropdown and search button-->
   <div class="container">
     <div class="row">
       <div class="input-field col s12 m5">
@@ -110,7 +109,7 @@
     </div>
   </div>
   <br>
-
+<!--This section is for spinner-->
   <div id="loadingDiv">
     <div class="preloader-wrapper big active">
       <div class="spinner-layer spinner-red-only">
@@ -126,6 +125,7 @@
       </div>
     </div><br>LOADING... PLEASE WAIT...
   </div>
+  <!--This section is to display the response data-->
   <div class="container">
     <div class="row">
       <div class="col s6" id="rental-results">

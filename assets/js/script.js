@@ -1,3 +1,4 @@
+// Claudiu's code
 // Loading message displayed until getting response 
 var $loading = $('#loadingDiv').hide();
 $(document)
@@ -7,15 +8,13 @@ $(document)
 	.ajaxStop(function () {
 		$loading.hide();
 	});
-// Hamburger menu view
-$(document).ready(function () {
-	$('.sidenav').sidenav();
-});
 
+//Arpita and Claudiu's code
 $(document).ready(function () {
 	var imageArray = ["assets/images/img-1.jpg", "assets/images/img-2.jpg", "assets/images/img-3.jpg", "assets/images/img-4.jpg", "assets/images/img-5.jpg", "assets/images/img-6.jpg", "assets/images/img-7.jpg", "assets/images/img-8.jpg", "assets/images/img-9.jpg", "assets/images/img-10.jpg"];
 
-
+	// Hamburger menu view in small screen
+	$('.sidenav').sidenav();
 
 	//Initiating drop down
 	$('select').formSelect();
@@ -27,8 +26,9 @@ $(document).ready(function () {
 		$("#event-results").empty();
 
 		if (($("#input").val()) == []) {
-			$("#input").attr("placeholder", "                      PLEASE ENTER A VALID CITY NAME !");
+			$("#input").attr("placeholder", " Please enter a valid city!");
 		}
+
 		// Splitting words, replacing first letter of each word with capital letter and joining them so they can be added to url		
 		var city = $("#input").val().split(" ");
 		var concatCity = " ";
@@ -66,7 +66,6 @@ $(document).ready(function () {
 			"url": "https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/events?limit=10&location=" + city + "," + selectedState + "&start_date=" + eventStartDate + "&end_date=" + eventEndDate + "&sort_on=time_start",
 			"method": "GET",
 			"timeout": 0,
-			// dataType: "jsonp",
 			"headers": {
 				"Authorization": "Bearer ziQsHIfnSa_NACbvMbDhqwbokq9PHvJ8vhH3TqgnSKqriuR-X8NwwjZ2zcdke6bCgJ-wW4NtRRKuAk0IdZzWg71fPHApVP841FW-X3sLYft0wMD9AK9ioGrJQRnsXnYx"
 			},
@@ -76,6 +75,7 @@ $(document).ready(function () {
 			console.log(response);
 		})
 	});
+	// Arpita's code
 	//This function is for displaying the rental listing
 	function showListing(response) {
 		for (var i = 0; i < response.length; i++) {
@@ -98,7 +98,7 @@ $(document).ready(function () {
 			$("#rental-results").append(card);
 		};
 	};
-
+	// Claudiu's code
 	//add event listener to View Map button
 	$('body').on("click", '.buttonViewMap', function () {
 		var buttonIndex = $(this).data('index');
@@ -118,7 +118,7 @@ $(document).ready(function () {
 		});
 	});
 
-
+	//Claudiu, Begum and Arpita
 	// This function is for displaying local events
 	function showEvents(response) {
 
@@ -127,7 +127,7 @@ $(document).ready(function () {
 			var card = `<div class="card animate__animated animate__fadeInUpBig">
 				<div class="row">
 					<div class="card-image col m4 s12">
-						<img id="img-1" class="responsive-img" src="${event.image_url}">
+					    <img id="img-1" class="responsive-img" src="${event.image_url}">
 					</div>
 					<div class="card-content col m8 s12" id="content-1">
 						<h6><strong> Title: ${event.name}</strong></h6>
