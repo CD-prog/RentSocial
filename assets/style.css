@@ -1,4 +1,3 @@
-
 h1 {
     text-align: center;
     font-size: 100px;
@@ -110,8 +109,10 @@ fieldset {
 
 #searchBtn {
     width: 120px;
-    height: 45px;
+    height: 44px;
+    opacity: .7;
 }
+#searchBtn:hover {opacity: 1}
 
 #input {
     height:3rem;
@@ -140,6 +141,23 @@ a {
     }
     .row .col {
     padding:0;
+    }
+    .card .card-content {
+        padding-top:0px;
+        margin-right: 10px;
+        margin-left: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 10px;
+    }
+    #img-1 {
+        width:200px;
+        height:150px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .card {
+        margin-right: 5px;
     }
   }
 
