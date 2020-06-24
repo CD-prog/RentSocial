@@ -1,4 +1,4 @@
-
+/* Begum's code */
 h1 {
     text-align: center;
     font-size: 100px;
@@ -17,7 +17,7 @@ body {
 }
 
 h5 {
-    color: white !important;
+    color: white;
     text-align: center;
     font-size: 48px;
     font-family: 'Italianno', cursive;
@@ -110,8 +110,11 @@ fieldset {
 
 #searchBtn {
     width: 120px;
-    height: 45px;
+    height: 44px;
+    opacity: .7;
+    z-index: 0;
 }
+#searchBtn:hover {opacity: 1}
 
 #input {
     height:3rem;
@@ -141,6 +144,23 @@ a {
     .row .col {
     padding:0;
     }
+    .card .card-content {
+        padding-top:0px;
+        margin-right: 10px;
+        margin-left: 10px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-bottom: 10px;
+    }
+    #img-1 {
+        width:150px;
+        height:150px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .card {
+        margin-right: 5px;
+    }
   }
 
 .card .card-content {
@@ -156,8 +176,3 @@ a {
     color:rgb(255, 255, 255);
   
     }
-
-.nav-wrapper {
-    position: fixed;
-    z-index: 1;
-}
