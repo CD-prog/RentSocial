@@ -96,12 +96,12 @@ $(document).ready(function () {
 	function showListing(response) {
 		for (var i = 0; i < response.length; i++) {
 			var rentals = response[i];
-			var card = `<div class="card">
+			var card = `<div class="card col s12">
 					<div class="row">
-						<div class="card-image col s4">
+						<div class="card-image col m4 s12">
 							<img id="img-1" class="responsive-img" src="${imageArray[i]}">
 						</div>
-						<div class="card-content col s8" id="content-1" >
+						<div class="card-content col m8 s12" id="content-1" >
 							<h6><strong>Address: ${rentals.formattedAddress == null ? " " : rentals.formattedAddress}</strong></h6>
 							<p><strong>Rent</strong>: $ ${rentals.price == null ? " " : rentals.price}</p>
 							<p><strong>Property Type</strong>: ${rentals.propertyType == null ? " " : rentals.propertyType}</p>
@@ -146,10 +146,10 @@ $(document).ready(function () {
 			var event = response.events[i];
 			var card = `<div class="card">
 				<div class="row">
-					<div class="card-image col s4">
+					<div class="card-image col m4 s12">
 						<img id="img-1" class="responsive-img" src="${event.image_url}">
 					</div>
-					<div class="card-content col s8" id="content-1">
+					<div class="card-content col m8 s12" id="content-1">
 						<h6><strong> Title: ${event.name}</strong></h6>
 						<p><strong>Description</strong>: ${event.description}</p>
 						<p><strong>Venue</strong>: ${event.location.display_address[0]}</p>
