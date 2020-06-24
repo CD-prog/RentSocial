@@ -13,3 +13,17 @@
 10. Navbar contains link to home page and contact us page.
 11. Contact us page contains a form which allows to user to contact the page owner.
 <img src="/assets/images/screen-shot.png">
+
+### Live Website
+
+Please access the live website from this link: https://cd-prog.github.io/RentSocial/
+
+### Authors
+Arpita Sau
+[Arpita's Github Page](https://github.com/arpitasau)
+
+Claudiu Dionesca
+[Claudiu's Github Page](https://github.com/CD-prog)
+
+Begum Sacak
+[Begum's Github Page](https://github.com/begumsacak)
