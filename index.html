@@ -9,8 +9,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Italianno&display=swap" rel="stylesheet">
-  <link href="assets/style.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css" />
+  <link href="assets/style.css" rel="stylesheet">
 </head>
 
 <body>
@@ -31,17 +32,25 @@
 
   <br>
   <br>
+<<<<<<< HEAD
   <h5>Search for your rental listings and nearby events</h5>
+=======
+  <h5 class="animate__animated animate__fadeInLeft"> Search for rental listings and nearby events</h5>
+>>>>>>> 3e49dfc151ddba9187ecd79d6a7e7a9b6ae417c9
   <br>
 
-  
+
 
   <div class="container">
     <div class="row">
       <div class="input-field col s12 m5">
         <input id="input" class="card-panel white" placeholder="    Enter City Name">
       </div>
+<<<<<<< HEAD
       <div class="col s12 m5 white">
+=======
+      <div class="col m5 s12 white">
+>>>>>>> 3e49dfc151ddba9187ecd79d6a7e7a9b6ae417c9
         <fieldset>
           <select id="state" name="state">
             <option value="---">Select State</option>
@@ -103,8 +112,13 @@
           </select>
         </fieldset>
       </div>
+<<<<<<< HEAD
       <div class="col s12 m2">
          <button id="searchBtn" class="waves-effect waves-light btn red accent-4">Search</button>
+=======
+      <div class="col s2">
+        <button id="searchBtn" class="waves-effect waves-light btn red accent-4">Search</button>
+>>>>>>> 3e49dfc151ddba9187ecd79d6a7e7a9b6ae417c9
       </div>
     </div>
   </div>
@@ -115,23 +129,25 @@
       <div class="spinner-layer spinner-red-only">
         <div class="circle-clipper left">
           <div class="circle"></div>
-        </div><div class="gap-patch">
+        </div>
+        <div class="gap-patch">
           <div class="circle"></div>
-        </div><div class="circle-clipper right">
+        </div>
+        <div class="circle-clipper right">
           <div class="circle"></div>
         </div>
       </div>
     </div><br>LOADING... PLEASE WAIT...
   </div>
-
-  <div class="row">
-    <div class="col s6" id="rental-results">
-      <!-- <div id="loading" class="spinner"></div> -->
+  <div class="container">
+    <div class="row">
+      <div class="col s6" id="rental-results">
+        <!-- <div id="loading" class="spinner"></div> -->
+      </div>
+      <div class="col s6" id="event-results">
+        <!-- <div id="loading" class="spinner"></div> -->
+      </div>
     </div>
-    <div class="col s6" id="event-results">
-      <!-- <div id="loading" class="spinner"></div> -->
-    </div>
-    
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -140,4 +156,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
 </body>
+
 </html>
