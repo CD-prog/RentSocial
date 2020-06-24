@@ -18,7 +18,15 @@
 
 <img src="/assets/images/screen-shot.png">
 
-### The application is done by NU bootcamp students
-1. Claudiu Diaconeasa 
-2. Begum Sacak
-3. Arpita Sau
+### Live Website
+Please access the live website from this link: https://cd-prog.github.io/RentSocial/
+
+### Authors
+Arpita Sau
+[Arpita's Github Page](https://github.com/arpitasau)
+
+Claudiu Diaconeasa
+[Claudiu's Github Page](https://github.com/CD-prog)
+
+Begum Sacak
+[Begum's Github Page](https://github.com/begumsacak)
