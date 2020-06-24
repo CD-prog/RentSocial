@@ -22,7 +22,7 @@ Please access the live website from this link: https://cd-prog.github.io/RentSoc
 Arpita Sau
 [Arpita's Github Page](https://github.com/arpitasau)
 
-Claudiu Dionesca
+Claudiu Diaconeasa
 [Claudiu's Github Page](https://github.com/CD-prog)
 
 Begum Sacak
