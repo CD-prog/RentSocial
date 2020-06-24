@@ -35,16 +35,8 @@ $(document).ready(function () {
 		$("#rental-results").empty();
 		$("#event-results").empty();
 
+
 		// Splitting words, replacing first letter of each word with capital letter and joining them so they can be added to url		
-
-		// var word1 = city[0].charAt(0).toUpperCase()+city[0].slice(1);
-		// if (city[1]==null){
-		// 	city=word1;
-		// }else if (city[1]){
-		// var word2 = city[1].charAt(0).toUpperCase()+city[1].slice(1);
-		// 	city = word1 + "%20" + word2
-		// }
-
 		var city = $("#input").val().split(" ");
 		var concatCity = " ";
 		if (city.length > 1) {
@@ -96,28 +88,7 @@ $(document).ready(function () {
 	function showListing(response) {
 		for (var i = 0; i < response.length; i++) {
 			var rentals = response[i];
-			var button = $("<button>View Map</button>");
-			button.attr("type", "button");
-			button.attr("data-index", escape(rentals.formattedAddress));
-			button.attr("class", "buttonViewMap");
-			button.attr("alt", "See More");
-
-			var card = `<div class="card col s12">
-		<div class="row">
-			<div class="card-image col m4 s12">
-				<img id="img-1" class="responsive-img" src="${imageArray[i]}">
-			</div>
-			<div class="card-content col m8 s12" id="content-1" >
-				<h6><strong>Address: ${rentals.formattedAddress}</strong></h6>
-				<p><strong>Rent</strong>: $ ${rentals.price}</p>
-				<p><strong>Property Type</strong>: ${rentals.propertyType}</p>
-				<p><strong>No of bedroom</strong>: ${rentals.bedrooms}</p>
-				<p><strong>No of bathroom</strong>: ${rentals.bathrooms}</p>
-			
-			</div>
-	  	</div>
-	</div>`
-			var card = `<div class="card">
+			var card = `<div class="card animate__animated animate__fadeInUpBig">
 					<div class="row">
 						<div class="card-image col s4">
 							<img id="img-1" class="responsive-img" src="${imageArray[i]}">
@@ -128,7 +99,7 @@ $(document).ready(function () {
 							<p><strong>Property Type</strong>: ${rentals.propertyType == null ? " " : rentals.propertyType}</p>
 							<p><strong>No of bedroom</strong>: ${rentals.bedrooms == null ? " " : rentals.bedrooms}</p>
 							<p><strong>No of bathroom</strong>: ${rentals.bathrooms == null ? " " : rentals.bathrooms}</p><br>
-							<button class="buttonViewMap" data-index="${escape(rentals.formattedAddress == null ? " " : rentals.formattedAddress)}">View Map</button>
+							<a class="buttonViewMap waves-effect waves-light blue btn" data-index="${escape(rentals.formattedAddress == null ? " " : rentals.formattedAddress)}">View Map</a>
 						</div>
 					</div>
 			</div>`
@@ -165,31 +136,19 @@ $(document).ready(function () {
 
 		for (var i = 0; i < response.events.length; i++) {
 			var event = response.events[i];
-			var card = `<div class="card">
-		<div class="row">
-			<div class="card-image col m4 s12">
-				<img id="img-1" class="responsive-img" src="${event.image_url}">
-			</div>
-			<div class="card-content col m8 s12" id="content-1">
-				<h6><strong> Title: ${event.name}</strong></h6>
-				<p><strong>Description</strong>: ${event.description}</p>
-				<p><strong>Venue</strong>: ${event.location.display_address[0]}</p>
-				<button class="buttonReadMore"><a href="${event.event_site_url}" target ="_blank">Read More</a></button>
-			</div>
-		<div>	
-	</div>`
-				< div class="row" >
+			var card = `<div class="card animate__animated animate__fadeInUpBig">
+				<div class="row">
 					<div class="card-image col s4">
 						<img id="img-1" class="responsive-img" src="${event.image_url}">
 					</div>
-						<div class="card-content col s8" id="content-1">
-							<h6><strong> Title: ${event.name}</strong></h6>
-							<p><strong>Description</strong>: ${event.description}</p>
-							<p><strong>Venue</strong>: ${event.location.display_address[0]}</p>
-							<button class="buttonReadMore"><a href="${event.event_site_url}" target="_blank">Read More</a></button>
-						</div>
-						<div>
-						</div>`
+					<div class="card-content col s8" id="content-1">
+						<h6><strong> Title: ${event.name}</strong></h6>
+						<p><strong>Description</strong>: ${event.description}</p>
+						<p><strong>Venue</strong>: ${event.location.display_address[0]}</p><br>
+						<a class="buttonReadMore waves-effect waves-light blue btn" href="${event.event_site_url}" target ="_blank">Read More</a>
+					</div>
+				<div>	
+			</div>`
 			$("#event-results").append(card);
 
 		};

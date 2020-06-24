@@ -9,6 +9,7 @@ body {
         rgba(0, 0, 0, 0.85)
       ), url(images/background.jpg);
     background-size: cover;
+    background-attachment: fixed;
     height: 100vh;
     width: 100vw;
     background-repeat: no-repeat;
@@ -20,7 +21,6 @@ h5 {
     text-align: center;
     font-size: 48px;
     font-family: 'Italianno', cursive;
-    
 }
 
 
@@ -121,20 +121,8 @@ fieldset {
 }
 
 .card {
-    opacity:0.8;
+    min-height: 250px;
     background-color:#f6e8e8;
-}
-
-.buttonReadMore{
-    background-color: rgb(19, 101, 232);
-    color:white;
-}
-.buttonViewMap{
-    background-color: rgb(19, 101, 232);
-    color:white;
-    height:23px;
-    width:89.81px;
-   
 }
 a {
     color:white;  
@@ -152,6 +140,9 @@ a {
     margin:0px;
     padding:0px;
     }
+    .row .col {
+    padding:0;
+    }
   }
 
   .card .card-content {
@@ -168,5 +159,4 @@ a {
 
         
     }
-
-   
+    
