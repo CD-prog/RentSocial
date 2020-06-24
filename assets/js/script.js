@@ -2,7 +2,6 @@
  * 1. user should enter a valid city or error message should be displayed
  * 2. user has to select a state or error message should be displayed
  * 3. If service not available display proper message
- * 4. if any value is not present/ undefined, how to handle it?
  * 5. if no events available, what message should be displayed?
  */
 
@@ -88,11 +87,7 @@ $(document).ready(function () {
 	function showListing(response) {
 		for (var i = 0; i < response.length; i++) {
 			var rentals = response[i];
-<<<<<<< HEAD
-			var card = `<div class="card col s12">
-=======
 			var card = `<div class="card animate__animated animate__fadeInUpBig">
->>>>>>> 3e49dfc151ddba9187ecd79d6a7e7a9b6ae417c9
 					<div class="row">
 						<div class="card-image col m4 s12">
 							<img id="img-1" class="responsive-img" src="${imageArray[i]}">
